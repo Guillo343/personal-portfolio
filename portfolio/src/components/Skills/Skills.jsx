@@ -2,8 +2,8 @@ import React, { useState, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import skillsData from '../../Data/skills';
-import '../../Styles/skills.css';
+import {skillsData} from '../../../Data/skills';
+import '../../../Styles/skills.css';
 
 // 3D Skills Sphere component
 const SkillsSphere = () => {

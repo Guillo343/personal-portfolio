@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import '../../Styles/projects.css';
+import '../../../Styles/projects.css';
 
 const ProjectCard = ({ project, index }) => {
   return (
@@ -48,7 +48,7 @@ const ProjectCard = ({ project, index }) => {
         <p>{project.description}</p>
         
         <div className="project-tech">
-          {project.technologies.map((tech, i) => (
+          {project.technologies?.map((tech, i) => (
             <span key={i} className="tech-tag">{tech}</span>
           ))}
         </div>

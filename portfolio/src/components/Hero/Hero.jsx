@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import '../../Styles/hero.css';
+import '../../../Styles/hero.css';
 
 // 3D Model component
 const ThreeModel = () => {

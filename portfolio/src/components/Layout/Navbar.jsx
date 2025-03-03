@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { useTheme } from '../../Context/ThemeContext';
-import '../../Styles/layout.css';
+import { useTheme } from '../../../Context/ThemeContext';
+import '../../../Styles/layout.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

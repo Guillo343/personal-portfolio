@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { ThemeProvider } from './context/ThemeContext';
-import Layout from './components/Layout';
-import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
-import './styles/App.css';
-import './styles/Navbar.css';
-import './styles/Hero.css';
-import './styles/About.css';
-import './styles/Projects.css';
-import './styles/Skills.css';
-import './styles/Experience.css';
-import './styles/Contact.css';
-import './styles/Footer.css';
+import { ThemeProvider } from '../Context/ThemeContext';
+import Layout from './components/Layout/Layout';
+import Hero from './components/Hero/Hero';
+import About from './components/About/AboutMe';
+import Projects from './components/Projects/Projects';
+import Skills from './components/Skills/Skills';
+import Experience from './components/Experience/Experience';
+// import Contact from './components/Contact/Contact';
+import './App.css';
+import '../Styles/hero.css';
+import '../Styles/about.css';
+import '../Styles/projects.css';
+import '../Styles/skills.css';
+import '../Styles/experience.css';
+import '../Styles/contacts.css';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -46,7 +44,7 @@ function App() {
         <Projects />
         <Skills />
         <Experience />
-        <Contact />
+        {/* <Contact /> */}
       </Layout>
     </ThemeProvider>
   );

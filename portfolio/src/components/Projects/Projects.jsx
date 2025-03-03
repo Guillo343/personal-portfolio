@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import projectsData from '../../Data/projects';
-import '../../Styles/projects.css';
+import {projectsData} from '../../../Data/projects';
+import '../../../Styles/projects.css';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');

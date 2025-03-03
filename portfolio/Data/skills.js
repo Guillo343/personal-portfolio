@@ -1,5 +1,5 @@
 // data/skills.js
-export const skills = [
+export const skillsData = [
     {
       name: "React",
       icon: "react",

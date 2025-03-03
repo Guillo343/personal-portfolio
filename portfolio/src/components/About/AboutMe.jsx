@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaPalette, FaServer, FaMobileAlt } from 'react-icons/fa';
-import '../../Styles/about.css';
+import '../../../Styles/about.css';
 
 const AboutMe = () => {
   const [isFlipped, setIsFlipped] = useState(false);

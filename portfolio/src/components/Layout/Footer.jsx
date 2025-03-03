@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
-import '../../Styles/layout.css';
+import '../../../Styles/layout.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
