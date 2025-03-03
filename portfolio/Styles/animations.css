@@ -1,0 +1,228 @@
+/* animations.css */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    from {
+      border-right-color: var(--text-primary);
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+  
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s forwards;
+  }
+  
+  .animate-fade-in-down {
+    animation: fadeInDown 0.6s forwards;
+  }
+  
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.6s forwards;
+  }
+  
+  .animate-fade-in-right {
+    animation: fadeInRight 0.6s forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s forwards;
+  }
+  
+  .animate-spin {
+    animation: spin 1.5s linear infinite;
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s ease infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Staggered animations */
+  .stagger-animation > * {
+    opacity: 0;
+  }
+  
+  .stagger-animation > *:nth-child(1) {
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.1s;
+  }
+  
+  .stagger-animation > *:nth-child(2) {
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.2s;
+  }
+  
+  .stagger-animation > *:nth-child(3) {
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.3s;
+  }
+  
+  .stagger-animation > *:nth-child(4) {
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.4s;
+  }
+  
+  .stagger-animation > *:nth-child(5) {
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.5s;
+  }
+  
+  .stagger-animation > *:nth-child(6) {
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.6s;
+  }
+  
+  /* Typewriter animation */
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--text-primary);
+    animation: 
+      typewriter 3s steps(40, end) forwards,
+      blink 0.75s step-end infinite;
+  }
+  
+  /* Scroll animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Loader animation */
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--bg-secondary);
+    border-bottom-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
