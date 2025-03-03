@@ -5,8 +5,8 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/AboutMe';
 import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
-import Experience from './components/Experience/Experience';
-// import Contact from './components/Contact/Contact';
+// import Experience from './components/Experience/Experience';
+import Contact from './components/Contact/Contact';
 import './App.css';
 import '../Styles/hero.css';
 import '../Styles/about.css';
@@ -43,8 +43,8 @@ function App() {
         <About />
         <Projects />
         <Skills />
-        <Experience />
-        {/* <Contact /> */}
+        {/* <Experience /> */}
+        <Contact />
       </Layout>
     </ThemeProvider>
   );
