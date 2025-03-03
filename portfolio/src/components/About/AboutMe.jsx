@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaPalette, FaServer, FaMobileAlt } from 'react-icons/fa';
-import '../../../Styles/about.css';
 
 const AboutMe = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -25,51 +24,37 @@ const AboutMe = () => {
     { icon: <FaMobileAlt />, title: 'Mobile Development', description: 'Developing cross-platform mobile applications' },
   ];
 
-  return (
-    <section id="about" className="about-section">
-      <motion.div
-        className="section-title"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2>About Me</h2>
-        <div className="underline"></div>
-      </motion.div>
+  const stats = [
+    { number: '5+', label: 'Years Experience' },
+    { number: '50+', label: 'Projects Completed' },
+    { number: '20+', label: 'Happy Clients' },
+    { number: '3+', label: 'Awards' },
+  ];
 
-      <div className="about-content">
-        <motion.div 
-          className="about-text"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <motion.h3
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+  return (
+    <section id="about" className="about">
+      <div className="about__container">
+        <div className="about__content">
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6 }}
           >
-            Who I Am
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            About Me
+          </motion.h2>
+          
+          <motion.div 
+            className="about__text"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            I'm a passionate web developer with a strong focus on creating interactive and engaging user experiences. With expertise in modern JavaScript frameworks and a keen eye for design, I bridge the gap between functionality and aesthetics.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            I specialize in building responsive websites and applications using React and complementing technologies. My approach combines clean code, performance optimization, and thoughtful UI/UX principles.
-          </motion.p>
+            <p>I'm a passionate web developer with a strong focus on creating interactive and engaging user experiences. With expertise in modern JavaScript frameworks and a keen eye for design, I bridge the gap between functionality and aesthetics.</p>
+            <p>I specialize in building responsive websites and applications using React and complementing technologies. My approach combines clean code, performance optimization, and thoughtful UI/UX principles.</p>
+          </motion.div>
           
           <div className="skills-progress">
             <h3>My Skills</h3>
@@ -91,19 +76,35 @@ const AboutMe = () => {
               </div>
             ))}
           </div>
-        </motion.div>
-
+          
+          <motion.div 
+            className="about__stats"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {stats.map((stat, index) => (
+              <div className="about__stat" key={index}>
+                <div className="about__stat-number">{stat.number}</div>
+                <div className="about__stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+        
         <motion.div 
-          className="about-card-container"
+          className="about__image-container"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
           <div className={`flip-card ${isFlipped ? 'flipped' : ''}`} onClick={flipCard}>
             <div className="flip-card-inner">
               <div className="flip-card-front">
-                <img src="/images/profile/profile.jpg" alt="Profile" />
+                <img className="about__image" src="/images/profile/profile.jpg" alt="Profile" />
+                <div className="about__image-overlay"></div>
                 <h3>Your Name</h3>
                 <p>Frontend Developer & UI Designer</p>
                 <div className="card-footer">
@@ -127,6 +128,7 @@ const AboutMe = () => {
               </div>
             </div>
           </div>
+          <div className="about__image-border"></div>
         </motion.div>
       </div>
     </section>

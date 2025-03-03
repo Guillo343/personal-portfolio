@@ -1,3 +1,4 @@
+// ProjectCard.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -11,11 +12,15 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
-      whileHover={{ y: -10 }}
+      whileHover={{ y: -5 }}
     >
-      <div className="project-image">
-        <img src={project.image} alt={project.title} />
-        <div className="project-links">
+      <div className="project-card__image-container">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          className="project-card__image"
+        />
+        <div className="project-card__links">
           {project.github && (
             <motion.a 
               href={project.github} 
@@ -43,13 +48,13 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </div>
       
-      <div className="project-info">
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
+      <div className="project-card__content">
+        <h3 className="project-card__title">{project.title}</h3>
+        <p className="project-card__description">{project.description}</p>
         
-        <div className="project-tech">
+        <div className="project-card__tags">
           {project.technologies?.map((tech, i) => (
-            <span key={i} className="tech-tag">{tech}</span>
+            <span key={i} className="project-card__tag">{tech}</span>
           ))}
         </div>
       </div>

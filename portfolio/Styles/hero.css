@@ -1,136 +1,195 @@
 /* hero.css */
 .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 85vh;
-    padding: 2rem 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .hero__content {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .hero__greeting {
-    font-size: 1.25rem;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 85vh;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__greeting {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 0.2s;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  margin: 0.5rem 0;
+  line-height: 1.1;
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 0.4s;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 0.6s;
+}
+
+.hero__description {
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 0.8s;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 1s;
+}
+
+.hero__cta-primary {
+  background-color: var(--accent-color);
+  color: var(--bg-primary-inverse);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-color);
+  text-decoration: none;
+}
+
+.hero__cta-primary:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+.hero__cta-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid var(--text-primary);
+  text-decoration: none;
+}
+
+.hero__cta-secondary:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* For Three.js canvas */
+.hero__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Scroll indicator styles */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--text-primary);
+  border-radius: 50px;
+  position: relative;
+}
+
+.scroll-indicator span::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: scrollIndicator 2s infinite;
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
     opacity: 0;
-    animation: fadeInUp 0.6s forwards;
-    animation-delay: 0.2s;
+    transform: translateY(20px);
   }
-  
-  .hero__title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 700;
-    margin: 0.5rem 0;
-    line-height: 1.1;
-    opacity: 0;
-    animation: fadeInUp 0.6s forwards;
-    animation-delay: 0.4s;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hero__subtitle {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    margin-bottom: 1.5rem;
-    color: var(--text-secondary);
-    opacity: 0;
-    animation: fadeInUp 0.6s forwards;
-    animation-delay: 0.6s;
+}
+
+@keyframes scrollIndicator {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
   }
-  
-  .hero__description {
-    max-width: 600px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    color: var(--text-secondary);
+  100% {
+    transform: translateX(-50%) translateY(20px);
     opacity: 0;
-    animation: fadeInUp 0.6s forwards;
-    animation-delay: 0.8s;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1rem;
+    min-height: 80vh;
   }
   
   .hero__cta {
-    display: flex;
-    gap: 1rem;
-    opacity: 0;
-    animation: fadeInUp 0.6s forwards;
-    animation-delay: 1s;
+    flex-direction: column;
+    width: 100%;
   }
   
-  .hero__cta-primary {
-    background-color: var(--accent-color);
-    color: var(--bg-primary-inverse);
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    border: 2px solid var(--accent-color);
-    text-decoration: none;
-  }
-  
-  .hero__cta-primary:hover {
-    background-color: transparent;
-    color: var(--accent-color);
-  }
-  
+  .hero__cta-primary, 
   .hero__cta-secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    border: 2px solid var(--text-primary);
-    text-decoration: none;
-  }
-  
-  .hero__cta-secondary:hover {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-  }
-  
-  .hero__background {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    z-index: 1;
+    text-align: center;
   }
   
-  /* For Three.js canvas */
-  .hero__canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  .scroll-indicator {
+    bottom: 1rem;
   }
-  
-  @media (max-width: 768px) {
-    .hero {
-      padding: 1rem;
-      min-height: 80vh;
-    }
-    
-    .hero__cta {
-      flex-direction: column;
-      width: 100%;
-    }
-    
-    .hero__cta-primary, 
-    .hero__cta-secondary {
-      width: 100%;
-      text-align: center;
-    }
-  }
+}
