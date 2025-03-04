@@ -30,7 +30,6 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -47,7 +46,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <a href="#home">DevPortfolio</a>
+          <a href="#home">Guillermo Muñoz</a>
         </motion.div>
 
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>

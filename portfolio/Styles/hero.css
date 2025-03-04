@@ -96,7 +96,7 @@
 
 .hero__cta-secondary:hover {
   background-color: var(--text-primary);
-  color: var(--bg-primary);
+  color: var(--accent-color);
 }
 
 .hero__background {

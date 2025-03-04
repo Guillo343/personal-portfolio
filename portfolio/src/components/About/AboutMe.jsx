@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaPalette, FaServer, FaMobileAlt } from 'react-icons/fa';
+import Guillermo from '../../assets/images/Guillermo.jpg'
 
 const AboutMe = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -103,7 +104,7 @@ const AboutMe = () => {
           <div className={`flip-card ${isFlipped ? 'flipped' : ''}`} onClick={flipCard}>
             <div className="flip-card-inner">
               <div className="flip-card-front">
-                <img className="about__image" src="/images/profile/profile.jpg" alt="Profile" />
+                <img className="about__image" src={Guillermo} alt="Profile" />
                 <div className="about__image-overlay"></div>
                 <h3>Your Name</h3>
                 <p>Frontend Developer & UI Designer</p>

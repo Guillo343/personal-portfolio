@@ -48,7 +48,9 @@
   align-items: center;
   gap: 0.5rem;
 }
-
+.logo:hover {
+  color: var(--accent-color);
+}
 .logo a {
   color: var(--text-primary);
   text-decoration: none;
