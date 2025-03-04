@@ -46,7 +46,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <a href="#home">Guillermo Muñoz</a>
+          <a href="#home">Guillermo Muñozs</a>
         </motion.div>
 
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>

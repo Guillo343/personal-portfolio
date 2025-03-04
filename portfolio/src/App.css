@@ -2,16 +2,16 @@
 
 :root {
   /* Color Palette - Light Mode */
-  --primary: #3b82f6;
-  --primary-rgb: 59, 130, 246;
-  --primary-dark: #2563eb;
-  --primary-light: #dbeafe;
-  --primary-lighter: #eff6ff;
+  --primary: #06D6A0;  /* Emerald */
+  --primary-rgb: 6, 214, 160;
+  --primary-dark: #05b989;
+  --primary-light: #a7f3dd;
+  --primary-lighter: #F8FFE5;  /* Light Yellow */
   
-  --bg-main: #f9fafb;
+  --bg-main: #F8FFE5;  /* Light Yellow */
   --bg-card: #ffffff;
   --bg-input: #ffffff;
-  --bg-subtle: #f3f4f6;
+  --bg-subtle: #edf9d7;
   
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
@@ -28,29 +28,29 @@
   --error: #dc2626;
   --error-bg: #fee2e2;
   --warning: #d97706;
-  --info: #2563eb;
+  --info: #06D6A0;  /* Emerald */
   --disabled: #9ca3af;
 }
 
 /* Dark Mode Variables */
 .dark-mode {
-  --primary: #3b82f6;
-  --primary-rgb: 59, 130, 246;
-  --primary-dark: #1d4ed8;
-  --primary-light: #1e40af;
-  --primary-lighter: #93c5fd;
+  --primary: #F87060;  /* Desert Sand */
+  --primary-rgb: 248, 112, 96;
+  --primary-dark: #e55e4e;
+  --primary-light: #fa9285;
+  --primary-lighter: #fcd5cf;
   
-  --bg-main: #111827;
-  --bg-card: #1f2937;
-  --bg-input: #1f2937;
-  --bg-subtle: #374151;
-  --bg-subtle-dark: #1f2937;
+  --bg-main: #102542;  /* Dark Blue */
+  --bg-card: #1a365d;
+  --bg-input: #1a365d;
+  --bg-subtle: #1e3a64;
+  --bg-subtle-dark: #102542;  /* Dark Blue */
   
   --text-primary: #f9fafb;
   --text-secondary: #d1d5db;
   --text-muted: #9ca3af;
   
-  --border-color: #374151;
+  --border-color: #2d4a7a;
   
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
@@ -61,7 +61,7 @@
   --error: #ef4444;
   --error-bg: rgba(239, 68, 68, 0.2);
   --warning: #f59e0b;
-  --info: #3b82f6;
+  --info: #F87060;  /* Desert Sand */
   --disabled: #6b7280;
 }
 
@@ -83,6 +83,14 @@ body {
   color: var(--text-primary);
   line-height: 1.5;
   transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  --bg-main: #F8FFE5;  /* Ensure light mode class works correctly */
+}
+
+body.dark-mode {
+  --bg-main: #102542;  /* Ensure dark mode class works correctly */
 }
 
 a {
@@ -182,6 +190,30 @@ button, input, textarea, select {
 
 .gap-8 {
   gap: 2rem;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-lighter);
+  transform: scale(1.05);
+}
+
+.dark-mode .theme-toggle:hover {
+  background-color: var(--primary-light);
 }
 
 /* Animation utilities */
