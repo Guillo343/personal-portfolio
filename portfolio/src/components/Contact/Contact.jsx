@@ -48,16 +48,16 @@ const Contact = () => {
     
     // Replace with your EmailJS service ID, template ID, and public key
     emailjs.send(
-      'YOUR_EMAILJS_SERVICE_ID',
-      'YOUR_EMAILJS_TEMPLATE_ID',
+      'service_y3c8b4m',
+      'template_02ekyuv',
       {
         from_name: form.name,
-        to_name: 'Your Name',
+        to_name: 'Guillermo Muñoz',
         from_email: form.email,
-        to_email: 'your.email@example.com',
+        to_email: 'Guillemunozi2003@gmail.com',
         message: form.message,
       },
-      'YOUR_EMAILJS_PUBLIC_KEY'
+      'GOKgM-9cIwNeums8T'
     )
     .then(() => {
       setLoading(false);
@@ -83,15 +83,15 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <FaEnvelope />,
-      text: 'your.email@example.com',
+      text: 'Guillemunozi2003@gmail.com',
     },
     {
       icon: <FaPhone />,
-      text: '+1 (123) 456-7890',
+      text: '+593 98 972 5566',
     },
     {
       icon: <FaMapMarkerAlt />,
-      text: 'San Francisco, CA',
+      text: 'Guayaquil, Ecuador',
     },
   ];
 
