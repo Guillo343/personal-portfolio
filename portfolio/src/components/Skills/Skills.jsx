@@ -15,11 +15,11 @@ const skillsData = [
   { name: 'CSS3', icon: <SiCss3 />, category: 'frontend' },
   { name: 'Tailwind CSS', icon: <SiTailwindcss />, category: 'frontend', featured: true },
   { name: 'Redux', icon: <SiRedux />, category: 'frontend' },
-  { name: 'Node.js', icon: <FaNodeJs />, category: 'backend', featured: true },
-  { name: 'Express.js', icon: <SiExpress />, category: 'backend' },
-  { name: 'MongoDB', icon: <SiMongodb />, category: 'backend' },
-  { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'backend' },
-  { name: 'Firebase', icon: <SiFirebase />, category: 'backend' },
+  // { name: 'Node.js', icon: <FaNodeJs />, category: 'backend', featured: true },
+  // { name: 'Express.js', icon: <SiExpress />, category: 'backend' },
+  // { name: 'MongoDB', icon: <SiMongodb />, category: 'backend' },
+  // { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'backend' },
+  // { name: 'Firebase', icon: <SiFirebase />, category: 'backend' },
   { name: 'Git', icon: <FaGitAlt />, category: 'tools', featured: true },
   { name: 'Docker', icon: <FaDocker />, category: 'tools' },
   { name: 'Three.js', icon: <SiThreedotjs />, category: 'frontend' },
@@ -62,7 +62,7 @@ const SkillsSphere = () => {
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-  const categories = ['all', 'frontend', 'backend', 'design', 'tools'];
+  const categories = ['all', 'frontend', 'design', 'tools']; //No Backend
 
   const filteredSkills = activeCategory === 'all'
     ? skillsData
