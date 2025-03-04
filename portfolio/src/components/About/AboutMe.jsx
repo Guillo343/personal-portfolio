@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaPalette, FaServer, FaMobileAlt } from 'react-icons/fa';
 import Guillermo from '../../assets/images/Guillermo.jpg'
+import '../../../Styles/about.css'
 
 const AboutMe = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -63,9 +64,9 @@ const AboutMe = () => {
               <div className="skill" key={index}>
                 <div className="skill-info">
                   <span className="skill-name">{skill.name}</span>
-                  <span className="skill-percentage">{skill.percentage}%</span>
+                  {/* <span className="skill-percentage">{skill.percentage}%</span> */}
                 </div>
-                <div className="skill-bar">
+                {/* <div className="skill-bar">
                   <motion.div 
                     className="skill-progress"
                     initial={{ width: 0 }}
@@ -73,7 +74,7 @@ const AboutMe = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: 0.2 + (index * 0.1) }}
                   ></motion.div>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
