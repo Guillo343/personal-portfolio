@@ -12,11 +12,12 @@ const AboutMe = () => {
   };
 
   const skills = [
-    { name: 'HTML/CSS', percentage: 90 },
-    { name: 'JavaScript', percentage: 85 },
-    { name: 'React', percentage: 80 },
-    { name: 'Node.js', percentage: 70 },
-    { name: '3D/Three.js', percentage: 65 },
+    { name: 'Front-End Development: HTML, CSS, JavaScript (ES6+), React, Three.js'},
+    { name: 'Styling & UI Frameworks: Tailwind CSS, Framer Motion'},
+    { name: 'Performance & Optimization: Code splitting, lazy loading, accessibility best practices'},
+    { name: 'Version Control & Collaboration: Git, GitHub, Agile methodologies'},
+    { name: 'Other Technologies: Node.js, REST APIs, Web Animations'},
+    {name: "With a keen eye for detail and a problem-solving mindset, I am always seeking challenging opportunities where I can contribute my skills while growing as a developer. Let's build something amazing together!"}
   ];
 
   const interests = [
@@ -26,12 +27,12 @@ const AboutMe = () => {
     { icon: <FaMobileAlt />, title: 'Mobile Development', description: 'Developing cross-platform mobile applications' },
   ];
 
-  const stats = [
-    { number: '5+', label: 'Years Experience' },
-    { number: '50+', label: 'Projects Completed' },
-    { number: '20+', label: 'Happy Clients' },
-    { number: '3+', label: 'Awards' },
-  ];
+  // const stats = [
+  //   { number: '5+', label: 'Years Experience' },
+  //   { number: '50+', label: 'Projects Completed' },
+  //   { number: '20+', label: 'Happy Clients' },
+  //   { number: '3+', label: 'Awards' },
+  // ];
 
   return (
     <section id="about" className="about">
@@ -54,8 +55,8 @@ const AboutMe = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p>I'm a passionate web developer with a strong focus on creating interactive and engaging user experiences. With expertise in modern JavaScript frameworks and a keen eye for design, I bridge the gap between functionality and aesthetics.</p>
-            <p>I specialize in building responsive websites and applications using React and complementing technologies. My approach combines clean code, performance optimization, and thoughtful UI/UX principles.</p>
+            <p>I'm a passionate Front-End Developer dedicated to crafting engaging and intuitive digital experiences. With a strong foundation in JavaScript, React, and modern web technologies, I bridge the gap between design and functionality, ensuring clean, efficient, and high-performing code.</p>
+            <p>My expertise extends beyond just writing code—I focus on user experience (UX), accessibility, and performance optimization, ensuring that every project I work on is both visually appealing and highly functional. I thrive in dynamic environments, continuously learning and adapting to new technologies to deliver innovative solutions.</p>
           </motion.div>
           
           <div className="skills-progress">
@@ -64,22 +65,12 @@ const AboutMe = () => {
               <div className="skill" key={index}>
                 <div className="skill-info">
                   <span className="skill-name">{skill.name}</span>
-                  {/* <span className="skill-percentage">{skill.percentage}%</span> */}
                 </div>
-                {/* <div className="skill-bar">
-                  <motion.div 
-                    className="skill-progress"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.percentage}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 + (index * 0.1) }}
-                  ></motion.div>
-                </div> */}
               </div>
             ))}
           </div>
           
-          <motion.div 
+          {/* <motion.div 
             className="about__stats"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +83,7 @@ const AboutMe = () => {
                 <div className="about__stat-label">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </div>
         
         <motion.div 
@@ -107,7 +98,7 @@ const AboutMe = () => {
               <div className="flip-card-front">
                 <img className="about__image" src={Guillermo} alt="Profile" />
                 <div className="about__image-overlay"></div>
-                <h3>Your Name</h3>
+                <h3>Guillermo Muñoz</h3>
                 <p>Frontend Developer & UI Designer</p>
                 <div className="card-footer">
                   <p>Click to reveal more</p>
