@@ -39,11 +39,15 @@
   background: transparent;
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  padding: 0.5rem 1.25rem;
-  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.3s ease;
   color: var(--text-primary);
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .projects__filter:hover {
@@ -176,6 +180,10 @@
   
   .section-title h2 {
     font-size: 2rem;
+  }
+  .projects__filter {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
   }
 }
 

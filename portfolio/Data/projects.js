@@ -6,7 +6,7 @@ export const projectsData = [
       description: "A fully responsive admin dashboard for e-commerce platforms with advanced analytics, inventory management, and order tracking features.",
       image: "/images/projects/ecommerce-dashboard.jpg",
       tags: ["React", "Redux", "Node.js", "MongoDB", "Chart.js"],
-      technologies : [],
+      // technologies : [],
       category: "Web App",
       sourceCode: "https://github.com/yourusername/ecommerce-dashboard",
       liveDemo: "https://ecommerce-dashboard-demo.netlify.app/",

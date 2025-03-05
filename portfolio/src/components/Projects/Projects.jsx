@@ -1,18 +1,46 @@
-// Projects.js
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import {projectsData} from '../../../Data/projects';
+import { projectsData } from '../../../Data/projects';
 import '../../../Styles/projects.css';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('All');
   
-  const filterCategories = ['all', 'web', 'mobile', 'ui', '3d'];
+  const filterCategories = [
+    'All',
+    'Full-Stack Web Apps',
+    'Front-End Projects',
+    'UI/UX Design'
+  ];
   
-  const filteredProjects = activeFilter === 'all' 
-    ? projectsData 
-    : projectsData.filter(project => project.category === activeFilter);
+  // Advanced filtering logic
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'All') return projectsData;
+    
+    return projectsData.filter(project => {
+      // Check if the project matches the category based on technologies and type
+      switch(activeFilter) {
+        case 'Full-Stack Web Apps':
+          return project.tags.some(tag => 
+            ['React', 'Node.js', 'MongoDB', 'Express'].includes(tag)
+          ) && project.category === 'Web App';
+        
+        case 'Front-End Projects':
+          return project.tags.some(tag => 
+            ['React', 'TypeScript', 'Tailwind', 'Tailwind CSS'].includes(tag)
+          );
+        
+        case 'UI/UX Design':
+          return project.tags.some(tag => 
+            ['Three.js', 'GLSL', '3D', 'UI', 'UX'].includes(tag)
+          );
+        
+        default:
+          return true;
+      }
+    });
+  }, [activeFilter]);
 
   return (
     <section id="projects" className="projects">
@@ -43,7 +71,7 @@ const Projects = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category}
             </motion.button>
           ))}
         </motion.div>
@@ -55,9 +83,13 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {filteredProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))
+          ) : (
+            <p className="no-projects">No projects found in this category.</p>
+          )}
         </motion.div>
       </div>
     </section>
