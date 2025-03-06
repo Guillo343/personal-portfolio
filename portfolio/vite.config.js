@@ -1,11 +1,23 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "/", // Root-relative paths for production
   plugins: [react()],
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    // Ensure proper module format and file organization
+    rollupOptions: {
+      output: {
+        format: 'es',
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
+  },
+  // Properly resolve imports
+  resolve: {
+    extensions: ['.mjs', '.js', '.jsx', '.json', '.css']
   }
 })
