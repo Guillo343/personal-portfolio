@@ -17,14 +17,10 @@ const ThreeModel = () => {
 const Hero = () => {
   // Function to handle scroll to the next section
   const scrollToNextSection = () => {
-    // Get the element after the hero section
     const nextSection = document.querySelector('#home').nextElementSibling;
-    
     if (nextSection) {
-      // Scroll to the next section with smooth behavior
       nextSection.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // If no next section exists, just scroll down a bit
       window.scrollTo({
         top: window.innerHeight,
         behavior: 'smooth'
