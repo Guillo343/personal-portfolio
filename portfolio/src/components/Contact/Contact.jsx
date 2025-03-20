@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import SectionTitle from './SectionTitle';
+import '../../../Styles/contacts.css'
 
 const Contact = () => {
   const formRef = useRef();

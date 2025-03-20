@@ -5,15 +5,10 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/AboutMe';
 import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
-// import Experience from './components/Experience/Experience';
+import Experience from './components/Experience/Experience';
 import Contact from './components/Contact/Contact';
 import './App.css';
-import '../Styles/hero.css';
-import '../Styles/about.css';
-import '../Styles/projects.css';
-import '../Styles/skills.css';
-import '../Styles/experience.css';
-import '../Styles/contacts.css';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,7 +37,7 @@ function App() {
         <About />
         <Projects />
         <Skills />
-        {/* <Experience /> */}
+        <Experience />
         <Contact />
       </Layout>
     </ThemeProvider>
