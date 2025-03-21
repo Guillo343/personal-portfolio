@@ -41,42 +41,39 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+  
     if (!validateForm()) return;
-    
+  
     setLoading(true);
-    
+    setSuccess(false);
+    setErrors({}); 
+  
     emailjs.send(
       'service_y3c8b4m',
       'template_02ekyuv',
       {
-        from_name: form.name,
-        to_name: 'Guillermo Muñoz',
-        from_email: form.email,
-        to_email: 'Guillemunozi2003@gmail.com',
+        title: 'Contact Us',
+        name: form.name,
+        email: form.email,
         message: form.message,
+        time: new Date().toLocaleString(),
       },
       'GOKgM-9cIwNeums8T'
     )
     .then(() => {
       setLoading(false);
       setSuccess(true);
-      
-      // Reset form
-      setForm({
-        name: '',
-        email: '',
-        message: '',
-      });
-
+      setForm({ name: '', email: '', message: '' });
+  
       setTimeout(() => setSuccess(false), 5000);
     })
     .catch((error) => {
       setLoading(false);
       console.error('Error sending email:', error);
-      alert('Something went wrong. Please try again.');
+      setErrors({ general: 'Something went wrong. Please try again.' });
     });
   };
+  
 
   const contactInfo = [
     {
