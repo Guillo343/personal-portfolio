@@ -1,4 +1,3 @@
-/* layout.css */
 .layout {
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
   }
   
   /* Navbar styles */
-  /* Navbar styles adjusted to match JSX structure */
 .navbar {
   position: fixed;
   top: 0;
@@ -38,7 +36,6 @@
   margin: 0 auto;
 }
 
-/* Change navbar__logo to logo */
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
@@ -56,7 +53,6 @@
   text-decoration: none;
 }
 
-/* Change navbar__links to nav-links */
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -128,56 +124,63 @@
 
 /* Hamburger menu styles */
 .hamburger {
-  display: none;
+  display: flex;
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
-  width: 40px;
-  height: 25px;
-  background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white background */
-  backdrop-filter: blur(10px); /* Blurring effect */
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 8px; /* Rounded corners */
-  padding: 6px;
+  width: 45px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 .hamburger:hover {
-  background-color: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
+  background: rgba(255, 255, 255, 0.3);
 }
 .hamburger span {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: var(--text-primary); /* Uses your existing text color */
+  background-color: var(--text-primary); 
   border-radius: 10px;
   transition: all 0.3s ease;
   opacity: 0.8; 
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .hamburger {
     display: flex;
   }
   
   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 70%;
-    background-color: var(--bg-primary);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s ease;
-    z-index: 999;
-    gap: 2rem;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  top: 70px; 
+  right: 0;
+  width: 250px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
   }
   
   .nav-links.active {
     right: 0;
+    transform: translateX(0);
   }
   
   .nav-links li {
@@ -189,7 +192,6 @@
   }
 }
   /* Footer styles */
-/* Footer styles - updated to match JSX component */
 .footer {
   background-color: var(--bg-footer);
   padding: 4rem 1rem;
