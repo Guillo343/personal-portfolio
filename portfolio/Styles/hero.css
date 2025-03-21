@@ -30,7 +30,6 @@
   animation: scrollIndicator 2s infinite;
 }
 
-/* Rest of the existing CSS remains the same */
 /* hero.css */
 .hero {
   display: flex;
@@ -129,7 +128,6 @@
 
 .hero__cta-secondary:hover {
   background-color: var(--text-primary);
-  color: var(--accent-color);
 }
 
 .hero__background {

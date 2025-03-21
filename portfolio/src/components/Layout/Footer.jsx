@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import '../../../Styles/layout.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: <FaGithub />, url: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
+    { icon: <FaGithub />, url: 'https://github.com/Guillo343', label: 'GitHub' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/guillermo-mu%C3%B1oz-438068234/', label: 'LinkedIn' },
     { icon: <FaEnvelope />, url: 'mailto:Guillemunozi2003@gmail.com', label: 'Email' },
   ];
 
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} DevPortfolio. All rights reserved.</p>
+          <p>&copy; {currentYear} Guillermo Muñoz. All rights reserved.</p>
           <p>Handcrafted with <span className="heart">❤</span> using React</p>
         </div>
       </div>
