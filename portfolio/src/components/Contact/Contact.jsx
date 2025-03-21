@@ -20,7 +20,6 @@ const Contact = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
     
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -47,7 +46,6 @@ const Contact = () => {
     
     setLoading(true);
     
-    // Replace with your EmailJS service ID, template ID, and public key
     emailjs.send(
       'service_y3c8b4m',
       'template_02ekyuv',
@@ -71,7 +69,6 @@ const Contact = () => {
         message: '',
       });
 
-      // Reset success message after 5 seconds
       setTimeout(() => setSuccess(false), 5000);
     })
     .catch((error) => {
