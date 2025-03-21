@@ -83,6 +83,28 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+.project-card__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.project-card__button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: var(--bg-primary-inverse);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.project-card__button:hover {
+  background-color: var(--bg-primary);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
 .project-card__image-container {
   position: relative;
   overflow: hidden;

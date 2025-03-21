@@ -21,9 +21,9 @@ const ProjectCard = ({ project, index }) => {
           className="project-card__image"
         />
         <div className="project-card__links">
-          {project.github && (
+          {project.sourceCode && (
             <motion.a 
-              href={project.github} 
+              href={project.sourceCode} 
               target="_blank" 
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
@@ -33,9 +33,9 @@ const ProjectCard = ({ project, index }) => {
               <FaGithub />
             </motion.a>
           )}
-          {project.demo && (
+          {project.liveDemo && (
             <motion.a 
-              href={project.demo} 
+              href={project.liveDemo} 
               target="_blank" 
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
@@ -53,8 +53,8 @@ const ProjectCard = ({ project, index }) => {
         <p className="project-card__description">{project.description}</p>
         
         <div className="project-card__tags">
-          {project.technologies?.map((tech, i) => (
-            <span key={i} className="project-card__tag">{tech}</span>
+          {project.tags?.map((tag, i) => (
+            <span key={i} className="project-card__tag">{tag}</span>
           ))}
         </div>
       </div>

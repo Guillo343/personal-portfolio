@@ -19,7 +19,6 @@ const Projects = () => {
     if (activeFilter === 'All') return projectsData;
     
     return projectsData.filter(project => {
-      // Check if the project matches the category based on technologies and type
       switch(activeFilter) {
         case 'Full-Stack Web Apps':
           return project.tags.some(tag => 

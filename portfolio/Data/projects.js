@@ -27,41 +27,19 @@ export const projectsData = [
       liveDemo: "https://countryguideme.netlify.app/",
       featured: true
     },
-    // {
-    //   id: 3,
-    //   title: "Crypto Tracker",
-    //   description: "Real-time cryptocurrency tracking application with price charts, portfolio management, and price alerts.",
-    //   image: "/images/projects/crypto-tracker.jpg",
-    //   tags: ["React", "Redux", "Tailwind CSS", "CoinGecko API", "Chart.js"],
-    //   category: "Web App",
-    //   sourceCode: "https://github.com/yourusername/crypto-tracker",
-    //   liveDemo: "https://crypto-tracker-demo.netlify.app/",
-    //   featured: true
-    // },
-    // {
-    //   id: 4,
-    //   title: "Task Management System",
-    //   description: "A comprehensive task management system with features like drag-and-drop task organization, priority levels, deadlines, and team collaboration tools.",
-    //   image: "/images/projects/task-management.jpg",
-    //   tags: ["React", "TypeScript", "Firebase", "React DnD", "Styled Components"],
-    //   category: "Web App",
-    //   sourceCode: "https://github.com/yourusername/task-management",
-    //   liveDemo: "https://task-management-app.netlify.app/",
-    //   featured: false
-    // },
     {
-      id: 5,
+      id: 3,
       title: "Portfolio Website",
       description: "A personal portfolio website showcasing my projects, skills, and professional experience with interactive elements and animations.",
       image: portfolio,
       tags: ["React", "Framer Motion", "Three.js", "Tailwind CSS"],
       category: "Website",
-      sourceCode: "https://github.com/yourusername/portfolio",
+      sourceCode: "https://github.com/Guillo343/personal-portfolio",
       liveDemo: "https://weather-mini-project.netlify.app/",
       featured: false
     },
     {
-      id: 6,
+      id: 4,
       title: "Weather Forecast App",
       description: "A weather forecast application providing current weather conditions and 5-day forecasts with dynamic backgrounds based on weather conditions.",
       image: weather,
