@@ -124,7 +124,7 @@
 
 /* Hamburger menu styles */
 .hamburger {
-  display: flex;
+  display: none;
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
@@ -159,7 +159,7 @@
   }
   
   .nav-links {
-    position: fixed;
+  position: fixed;
   top: 70px; 
   right: 0;
   width: 250px;
