@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import { useTheme } from '../../../Context/ThemeContext';
+import {useTheme} from '../../../Context/ThemeContext'
 import '../../../Styles/hero.css';
 
 // 3D Model component
@@ -17,6 +17,12 @@ const ThreeModel = () => {
 
 const Hero = () => {
   const {darkMode} = useTheme();
+  
+  useEffect(() =>{
+    console.log('Hero component detected theme change:', darkMode)
+  }, [darkMode])
+
+
   const scrollToNextSection = () => {
     const nextSection = document.querySelector('#home').nextElementSibling;
     if (nextSection) {
@@ -94,7 +100,7 @@ const Hero = () => {
           <pointLight position={[10, 10, 10]} />
           <Suspense fallback={null}>
             <ThreeModel />
-            <Stars radius={100} depth={50} count={5000} factor={4} saturation={darkMode ? '#fff' : '#000'} color={darkMode ? '#fff' : '#000'} fade />
+            <Stars key={darkMode ? 'dark' : 'light'} radius={100} depth={50} count={5000} factor={4} saturation={0.5} color={darkMode ? 'white' : 'black'} fade />
             <OrbitControls enableZoom={false} autoRotate />
           </Suspense>
         </Canvas>
