@@ -1,9 +1,9 @@
-import React, { Suspense, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
-import {useTheme} from '../../../Context/ThemeContext'
-import '../../../Styles/hero.css';
+import React, { Suspense, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { useTheme } from "../../../Context/ThemeContext";
+import "../../../Styles/hero.css";
 
 // 3D Model component
 const ThreeModel = () => {
@@ -16,21 +16,20 @@ const ThreeModel = () => {
 };
 
 const Hero = () => {
-  const {darkMode} = useTheme();
-  
-  useEffect(() =>{
-    console.log('Hero component detected theme change:', darkMode)
-  }, [darkMode])
+  const { darkMode } = useTheme();
 
+  useEffect(() => {
+    console.log("Hero component detected theme change:", darkMode);
+  }, [darkMode]);
 
   const scrollToNextSection = () => {
-    const nextSection = document.querySelector('#home').nextElementSibling;
+    const nextSection = document.querySelector("#home").nextElementSibling;
     if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
+      nextSection.scrollIntoView({ behavior: "smooth" });
     } else {
       window.scrollTo({
         top: window.innerHeight,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -38,7 +37,7 @@ const Hero = () => {
   return (
     <section id="home" className="hero">
       <div className="hero__content">
-        <motion.p 
+        <motion.p
           className="hero__greeting"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,8 +45,8 @@ const Hero = () => {
         >
           Hello, I'm
         </motion.p>
-        
-        <motion.h1 
+
+        <motion.h1
           className="hero__title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,8 +54,8 @@ const Hero = () => {
         >
           <span className="highlight">Guillermo Muñoz</span>
         </motion.h1>
-        
-        <motion.h2 
+
+        <motion.h2
           className="hero__subtitle"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,8 +63,8 @@ const Hero = () => {
         >
           Frontend Developer & UI Designer
         </motion.h2>
-        
-        <motion.p 
+
+        <motion.p
           className="hero__description"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,18 +72,18 @@ const Hero = () => {
         >
           Building elegant, responsive and interactive web experiences
         </motion.p>
-        
+
         <div className="hero__cta">
-          <motion.a 
-            href="#projects" 
+          <motion.a
+            href="#projects"
             className="hero__cta-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             View Projects
           </motion.a>
-          <motion.a 
-            href="#contact" 
+          <motion.a
+            href="#contact"
             className="hero__cta-secondary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -93,20 +92,29 @@ const Hero = () => {
           </motion.a>
         </div>
       </div>
-      
+
       <div className="hero__background">
         <Canvas className="hero__canvas">
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} />
           <Suspense fallback={null}>
             <ThreeModel />
-            <Stars key={darkMode ? 'dark' : 'light'} radius={100} depth={50} count={5000} factor={4} saturation={0.5} color={darkMode ? 'white' : 'black'} fade />
+            <Stars
+              key={darkMode ? "dark" : "light"}
+              radius={100}
+              depth={50}
+              count={5000}
+              factor={4}
+              saturation={0.5}
+              color={darkMode ? "white" : "black"}
+              fade
+            />
             <OrbitControls enableZoom={false} autoRotate />
           </Suspense>
         </Canvas>
       </div>
-      
-      <motion.div 
+
+      <motion.div
         className="scroll-indicator"
         animate={{ y: [0, 12, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
@@ -115,7 +123,7 @@ const Hero = () => {
         aria-label="Scroll to next section"
         tabIndex={0}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
+          if (e.key === "Enter" || e.key === " ") {
             scrollToNextSection();
           }
         }}
