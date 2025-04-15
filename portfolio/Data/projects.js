@@ -1,8 +1,8 @@
 // data/projects.js
-import aromaHogar from '../public/images/projects/AromaHogar.png'
-import countryGuide from '../public/images/projects/CountryGuide.png'
-import portfolio from '../public/images/projects/Portfolio.png'
-import weather from '../public/images/projects/Weather.png'
+import aromaHogar from '/images/projects/AromaHogar.png?url' 
+import countryGuide from '/images/projects/CountryGuide.png?url'
+import portfolio from '/images/projects/Portfolio.png?url'
+import weather from '/images/projects/Weather.png?url'
 
 export const projectsData = [
     {

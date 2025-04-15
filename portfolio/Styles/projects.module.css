@@ -1,20 +1,20 @@
-/* projects.css */
+/* projects.module.css */
 .projects {
   padding: 5rem 1rem;
   background-color: var(--bg-primary);
 }
 
-.projects__container {
+.projectsContainer {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.section-title {
+.sectionTitle {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.section-title h2 {
+.sectionTitle h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: var(--text-primary);
@@ -27,15 +27,23 @@
   margin: 0 auto;
 }
 
-.projects__filters {
+/* Filter navigation */
+.projectsFilters {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 3rem;
+  list-style: none;
+  padding: 0;
 }
 
-.projects__filter {
+.projectsFilters li {
+  margin: 0;
+  padding: 0;
+}
+
+.projectsFilter {
   background: transparent;
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -50,24 +58,34 @@
   text-overflow: ellipsis;
 }
 
-.projects__filter:hover {
+.projectsFilter:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
 
-.projects__filter.active {
+.projectsFilter.active {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--bg-primary-inverse);
 }
 
-.projects__grid {
+/* Projects grid */
+.projectsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
 }
 
-.project-card {
+.noProjects {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
+/* Project card */
+.projectCard {
   border-radius: 8px;
   overflow: hidden;
   background-color: var(--bg-card);
@@ -78,50 +96,31 @@
   flex-direction: column;
 }
 
-.project-card:hover {
+.projectCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.project-card__buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.project-card__button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: var(--accent-color);
-  color: var(--bg-primary-inverse);
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.project-card__button:hover {
-  background-color: var(--bg-primary);
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-}
-
-.project-card__image-container {
+.projectCardImageContainer {
   position: relative;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-.project-card__image {
+.projectCardImage {
   width: 100%;
   height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  display: block;
 }
 
-.project-card:hover .project-card__image {
+.projectCard:hover .projectCardImage {
   transform: scale(1.05);
 }
 
-.project-card__links {
+.projectCardLinks {
   position: absolute;
   top: 0;
   left: 0;
@@ -136,11 +135,11 @@
   transition: opacity 0.3s ease;
 }
 
-.project-card:hover .project-card__links {
+.projectCard:hover .projectCardLinks {
   opacity: 1;
 }
 
-.project-card__links a {
+.projectCardLinks a {
   width: 45px;
   height: 45px;
   background-color: var(--bg-primary);
@@ -153,26 +152,26 @@
   transition: all 0.3s ease;
 }
 
-.project-card__links a:hover {
+.projectCardLinks a:hover {
   background-color: var(--accent-color);
   color: var(--bg-primary);
 }
 
-.project-card__content {
+.projectCardContent {
   padding: 1.5rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-.project-card__title {
+.projectCardTitle {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-.project-card__description {
+.projectCardDescription {
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -180,30 +179,42 @@
   flex-grow: 1;
 }
 
-.project-card__tags {
+.projectCardTags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  padding: 0;
+  list-style: none;
 }
 
-.project-card__tag {
+.projectCardTags li {
+  margin: 0;
+  padding: 0;
+}
+
+.projectCardTag {
   background-color: var(--bg-tag);
   color: var(--text-secondary);
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
   font-size: 0.75rem;
+  display: inline-block;
 }
 
+/* Removed unused projectCardButtons and projectCardButton */
+
+/* Responsive styles */
 @media (max-width: 768px) {
-  .projects__grid {
+  .projectsGrid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
   
-  .section-title h2 {
+  .sectionTitle h2 {
     font-size: 2rem;
   }
-  .projects__filter {
+  
+  .projectsFilter {
     font-size: 0.75rem;
     padding: 0.4rem 0.75rem;
   }
@@ -214,8 +225,8 @@
     padding: 4rem 0.75rem;
   }
   
-  .projects__filter {
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
+  .projectsFilter {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
   }
 }

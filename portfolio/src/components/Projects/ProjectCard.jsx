@@ -1,26 +1,25 @@
-// ProjectCard.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import '../../../Styles/projects.css';
+import styles from '../../../Styles/projects.module.css';
 
 const ProjectCard = ({ project, index }) => {
   return (
-    <motion.div 
-      className="project-card"
+    <motion.article 
+      className={styles.projectCard}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
       whileHover={{ y: -5 }}
     >
-      <div className="project-card__image-container">
+      <figure className={styles.projectCardImageContainer}>
         <img 
           src={project.image} 
-          alt={project.title} 
-          className="project-card__image"
+          alt={`Preview of ${project.title}`} 
+          className={styles.projectCardImage}
         />
-        <div className="project-card__links">
+        <div className={styles.projectCardLinks}>
           {project.sourceCode && (
             <motion.a 
               href={project.sourceCode} 
@@ -28,7 +27,7 @@ const ProjectCard = ({ project, index }) => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="GitHub Repository"
+              aria-label={`View source code for ${project.title} on GitHub`}
             >
               <FaGithub />
             </motion.a>
@@ -40,25 +39,27 @@ const ProjectCard = ({ project, index }) => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="Live Demo"
+              aria-label={`View live demo of ${project.title}`}
             >
               <FaExternalLinkAlt />
             </motion.a>
           )}
         </div>
-      </div>
+      </figure>
       
-      <div className="project-card__content">
-        <h3 className="project-card__title">{project.title}</h3>
-        <p className="project-card__description">{project.description}</p>
+      <div className={styles.projectCardContent}>
+        <h3 className={styles.projectCardTitle}>{project.title}</h3>
+        <p className={styles.projectCardDescription}>{project.description}</p>
         
-        <div className="project-card__tags">
+        <ul className={styles.projectCardTags}>
           {project.tags?.map((tag, i) => (
-            <span key={i} className="project-card__tag">{tag}</span>
+            <li key={i}>
+              <span className={styles.projectCardTag}>{tag}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 
