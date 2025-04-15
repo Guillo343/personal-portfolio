@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import '../../../Styles/layout.css';
+import styles from '../../../Styles/layout.module.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,15 +13,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-top">
-          <div className="footer-logo">
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
+        <div className={styles.footerTop}>
+          <div className={styles.footerLogo}>
             <h2>Guillermo Muñoz</h2>
             <p>Creating elegant web experiences</p>
           </div>
           
-          <div className="footer-links">
+          <div className={styles.footerLinks}>
             <h3>Quick Links</h3>
             <ul>
               <li><a href="#home">Home</a></li>
@@ -33,9 +33,9 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div className="footer-social">
+          <div className={styles.footerSocial}>
             <h3>Connect</h3>
-            <div className="social-icons">
+            <div className={styles.socialIcons}>
               {socialLinks.map((social, index) => (
                 <motion.a 
                   key={index}
@@ -53,9 +53,9 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="footer-bottom">
+        <div className={styles.footerBottom}>
           <p>&copy; {currentYear} Guillermo Muñoz. All rights reserved.</p>
-          <p>Handcrafted with <span className="heart">❤</span> using React</p>
+          <p>Handcrafted with <span className={styles.heart}>❤</span> using React</p>
         </div>
       </div>
     </footer>
