@@ -1,5 +1,5 @@
 /* Scroll indicator styles */
-.scroll-indicator {
+.scrollIndicator {
   position: absolute;
   bottom: 2rem;
   left: 50%;
@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 
-.scroll-indicator span {
+.scrollIndicator span {
   display: block;
   width: 30px;
   height: 50px;
@@ -17,7 +17,7 @@
   position: relative;
 }
 
-.scroll-indicator span::before {
+.scrollIndicator span::before {
   content: '';
   position: absolute;
   top: 8px;
@@ -41,7 +41,7 @@
   overflow: hidden;
 }
 
-.hero__content {
+.heroContent {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -49,7 +49,7 @@
   z-index: 2;
 }
 
-.hero__greeting {
+.heroGreeting {
   font-size: 1.25rem;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
@@ -59,7 +59,7 @@
   animation-delay: 0.2s;
 }
 
-.hero__title {
+.heroTitle {
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 700;
   margin: 0.5rem 0;
@@ -69,7 +69,7 @@
   animation-delay: 0.4s;
 }
 
-.hero__subtitle {
+.heroSubtitle {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
@@ -78,7 +78,7 @@
   animation-delay: 0.6s;
 }
 
-.hero__description {
+.heroDescription {
   max-width: 600px;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -89,7 +89,7 @@
   animation-delay: 0.8s;
 }
 
-.hero__cta {
+.heroCta {
   display: flex;
   gap: 1rem;
   opacity: 0;
@@ -97,7 +97,7 @@
   animation-delay: 1s;
 }
 
-.hero__cta-primary {
+.heroCtaPrimary {
   background-color: var(--accent-color);
   color: var(--bg-primary-inverse);
   padding: 0.75rem 1.5rem;
@@ -109,12 +109,12 @@
   text-decoration: none;
 }
 
-.hero__cta-primary:hover {
+.heroCtaPrimary:hover {
   background-color: transparent;
   color: var(--accent-color);
 }
 
-.hero__cta-secondary {
+.heroCtaSecondary {
   background-color: transparent;
   color: var(--text-primary);
   padding: 0.75rem 1.5rem;
@@ -126,11 +126,11 @@
   text-decoration: none;
 }
 
-.hero__cta-secondary:hover {
+.heroCtaSecondary:hover {
   background-color: var(--text-primary);
 }
 
-.hero__background {
+.heroBackground {
   position: absolute;
   top: 0;
   left: 0;
@@ -140,7 +140,7 @@
 }
 
 /* For Three.js canvas */
-.hero__canvas {
+.heroCanvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -149,7 +149,7 @@
 }
 
 /* Scroll indicator styles */
-.scroll-indicator {
+.scrollIndicator {
   position: absolute;
   bottom: 2rem;
   left: 50%;
@@ -158,7 +158,7 @@
   cursor: pointer;
 }
 
-.scroll-indicator span {
+.scrollIndicator span {
   display: block;
   width: 30px;
   height: 50px;
@@ -167,7 +167,7 @@
   position: relative;
 }
 
-.scroll-indicator span::before {
+.scrollIndicator span::before {
   content: '';
   position: absolute;
   top: 8px;
@@ -209,18 +209,18 @@
     min-height: 80vh;
   }
   
-  .hero__cta {
+  .heroCta {
     flex-direction: column;
     width: 100%;
   }
   
-  .hero__cta-primary, 
-  .hero__cta-secondary {
+  .heroCtaPrimary, 
+  .heroCtaSecondary {
     width: 100%;
     text-align: center;
   }
   
-  .scroll-indicator {
+  .scrollIndicator {
     bottom: 1rem;
   }
 }

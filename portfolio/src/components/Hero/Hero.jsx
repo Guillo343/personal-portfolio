@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { useTheme } from "../../../Context/ThemeContext";
-import "../../../Styles/hero.css";
+import styles from "../../../Styles/hero.module.css";
 
 // 3D Model component
 const ThreeModel = () => {
@@ -35,10 +35,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="hero">
-      <div className="hero__content">
+    <section id='home' className={styles.hero}>
+      <div className={styles.heroContent}>
         <motion.p
-          className="hero__greeting"
+          className={styles.heroGreeting}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -47,16 +47,16 @@ const Hero = () => {
         </motion.p>
 
         <motion.h1
-          className="hero__title"
+          className={styles.heroTitle}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <span className="highlight">Guillermo Muñoz</span>
+          <span className={styles.highlight}>Guillermo Muñoz</span>
         </motion.h1>
 
         <motion.h2
-          className="hero__subtitle"
+          className={styles.heroSubtitle}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -65,7 +65,7 @@ const Hero = () => {
         </motion.h2>
 
         <motion.p
-          className="hero__description"
+          className={styles.heroDescription}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -73,10 +73,10 @@ const Hero = () => {
           Building elegant, responsive and interactive web experiences
         </motion.p>
 
-        <div className="hero__cta">
+        <div className={styles.heroCta}>
           <motion.a
             href="#projects"
-            className="hero__cta-primary"
+            className={styles.heroCtaPrimary}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -84,7 +84,7 @@ const Hero = () => {
           </motion.a>
           <motion.a
             href="#contact"
-            className="hero__cta-secondary"
+            className={styles.heroCtaSecondary}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -93,8 +93,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="hero__background">
-        <Canvas className="hero__canvas">
+      <div className={styles.heroBackground}>
+        <Canvas className={styles.heroCanvas}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} />
           <Suspense fallback={null}>
@@ -115,7 +115,7 @@ const Hero = () => {
       </div>
 
       <motion.div
-        className="scroll-indicator"
+        className="scrollIndicator"
         animate={{ y: [0, 12, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
         onClick={scrollToNextSection}
