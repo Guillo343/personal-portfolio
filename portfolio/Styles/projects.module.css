@@ -201,9 +201,6 @@
   font-size: 0.75rem;
   display: inline-block;
 }
-
-/* Removed unused projectCardButtons and projectCardButton */
-
 /* Responsive styles */
 @media (max-width: 768px) {
   .projectsGrid {
