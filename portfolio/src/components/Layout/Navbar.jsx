@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { useTheme } from '../../../Context/ThemeContext';
-import '../../../Styles/layout.css';
+import styles from '../../../Styles/layout.module.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -45,52 +45,66 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav 
+    <motion.header 
       ref={navRef}
-      className={`navbar ${scrolled ? 'scrolled' : ''}`}
+      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
+      role="banner"
     >
-      <div className="nav-container">
+      <div className={styles.navContainer}>
         <motion.div 
-          className="logo"
+          className={styles.logo}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           <a href="#home" onClick={closeMenu}>Guillermo Muñoz</a>
         </motion.div>
 
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <button 
+          className={styles.hamburger} 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-expanded={menuOpen}
+          aria-label="Toggle navigation menu"
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
 
-        <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          {navLinks.map((link, index) => (
-            <motion.li 
-              key={index}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <a href={link.href} onClick={closeMenu}>{link.name}</a>
+        <nav role="navigation" aria-label="Main navigation">
+          <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
+            {navLinks.map((link, index) => (
+              <motion.li 
+                key={index}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <a href={link.href} onClick={closeMenu}>{link.name}</a>
+              </motion.li>
+            ))}
+            <motion.li>
+              <button 
+                className={styles.themeToggle}
+                aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => {
+                  toggleTheme();
+                  closeMenu();
+                }}
+              >
+                {isDarkMode ? 
+                  <FaSun className={styles.themeIcon} /> : 
+                  <FaMoon className={styles.themeIcon} />
+                }
+              </button>
             </motion.li>
-          ))}
-          <motion.li 
-            className="theme-toggle"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => {
-              toggleTheme();
-              closeMenu();
-            }}
-          >
-            {isDarkMode ? <FaSun className="theme-icon" /> : <FaMoon className="theme-icon" />}
-          </motion.li>
-        </ul>
+          </ul>
+        </nav>
       </div>
-    </motion.nav>
+    </motion.header>
   );
 };
 
