@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense} from "react";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
@@ -17,22 +17,6 @@ const ThreeModel = () => {
 
 const Hero = () => {
   const { darkMode } = useTheme();
-
-  useEffect(() => {
-    console.log("Hero component detected theme change:", darkMode);
-  }, [darkMode]);
-
-  const scrollToNextSection = () => {
-    const nextSection = document.querySelector("#home").nextElementSibling;
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <section id='home' className={styles.hero}>
@@ -113,23 +97,6 @@ const Hero = () => {
           </Suspense>
         </Canvas>
       </div>
-
-      <motion.div
-        className="scrollIndicator"
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-        onClick={scrollToNextSection}
-        role="button"
-        aria-label="Scroll to next section"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            scrollToNextSection();
-          }
-        }}
-      >
-        <span></span>
-      </motion.div>
     </section>
   );
 };
