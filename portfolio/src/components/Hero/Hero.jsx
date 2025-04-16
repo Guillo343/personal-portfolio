@@ -1,4 +1,4 @@
-import React, { Suspense} from "react";
+import React, { Suspense } from "react";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
@@ -19,7 +19,7 @@ const Hero = () => {
   const { darkMode } = useTheme();
 
   return (
-    <section id='home' className={styles.hero}>
+    <section id="home" className={styles.hero}>
       <div className={styles.heroContent}>
         <motion.p
           className={styles.heroGreeting}
@@ -84,13 +84,13 @@ const Hero = () => {
           <Suspense fallback={null}>
             <ThreeModel />
             <Stars
-              key={darkMode ? "dark" : "light"}
               radius={100}
               depth={50}
               count={5000}
               factor={4}
-              saturation={0.5}
-              color={darkMode ? "white" : "black"}
+              saturation={darkMode ? 0.5 : 0}
+              color={darkMode ? "white" : "#000"}
+              opacity={darkMode ? 1 : 0.3}
               fade
             />
             <OrbitControls enableZoom={false} autoRotate />
