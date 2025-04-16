@@ -5,6 +5,12 @@ import emailjs from '@emailjs/browser';
 import SectionTitle from './SectionTitle';
 import styles from '../../../Styles/contacts.module.css';
 
+console.log({
+  serviceID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  userID: import.meta.env.VITE_EMAILJS_USER_ID
+});
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
