@@ -57,43 +57,10 @@ const skillsData = [
   { name: "Figma", icon: <SiFigma />, category: "design" },
 ];
 
-// 3D Skills Sphere component
-const SkillsSphere = () => {
-  const positions = useMemo(() => {
-    const pos = [];
-    const count = 20;
-
-    for (let i = 0; i < count; i++) {
-      const phi = Math.acos(-1 + (2 * i) / count);
-      const theta = Math.sqrt(count * Math.PI) * phi;
-
-      pos.push([
-        2.5 * Math.cos(theta) * Math.sin(phi),
-        2.5 * Math.sin(theta) * Math.sin(phi),
-        2.5 * Math.cos(phi),
-      ]);
-    }
-
-    return pos;
-  }, []);
-
-  return (
-    <>
-      {positions.map((position, index) => (
-        <mesh key={index} position={position}>
-          <sphereGeometry args={[0.2, 32, 32]} />
-          <meshStandardMaterial
-            color={`hsl(${(index * 20) % 360}, 70%, 60%)`}
-          />
-        </mesh>
-      ))}
-    </>
-  );
-};
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("all");
-  const categories = ["all", "frontend", "design", "tools"]; //No Backend
+  const categories = ["all", "frontend", "design", "tools"]; //No Backend knowledge
 
   const filteredSkills =
     activeCategory === "all"
