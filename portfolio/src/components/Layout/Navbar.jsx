@@ -85,7 +85,7 @@ const Navbar = () => {
               </motion.li>
             ))}
             <motion.li>
-              <button 
+              <motion.button 
                 className={styles.themeToggle}
                 aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
                 whileHover={{ scale: 1.1 }}
@@ -99,7 +99,7 @@ const Navbar = () => {
                   <FaSun className={styles.themeIcon} /> : 
                   <FaMoon className={styles.themeIcon} />
                 }
-              </button>
+              </motion.button>
             </motion.li>
           </ul>
         </nav>
