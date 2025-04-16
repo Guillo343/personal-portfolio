@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import SectionTitle from './SectionTitle';
-import '../../../Styles/contacts.css'
+import styles from '../../../Styles/contacts.module.css';
 
 const Contact = () => {
   const formRef = useRef();
@@ -19,10 +19,7 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
-    
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validateForm = () => {
@@ -30,24 +27,21 @@ const Contact = () => {
     if (!form.name.trim()) newErrors.name = 'Name is required';
     if (!form.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       newErrors.email = 'Email is invalid';
     }
     if (!form.message.trim()) newErrors.message = 'Message is required';
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
     if (!validateForm()) return;
-  
     setLoading(true);
     setSuccess(false);
-    setErrors({}); 
-  
+    setErrors({});
+
     emailjs.send(
       'service_y3c8b4m',
       'template_02ekyuv',
@@ -60,43 +54,31 @@ const Contact = () => {
       },
       'GOKgM-9cIwNeums8T'
     )
-    .then(() => {
-      setLoading(false);
-      setSuccess(true);
-      setForm({ name: '', email: '', message: '' });
-  
-      setTimeout(() => setSuccess(false), 5000);
-    })
-    .catch((error) => {
-      setLoading(false);
-      console.error('Error sending email:', error);
-      setErrors({ general: 'Something went wrong. Please try again.' });
-    });
+      .then(() => {
+        setLoading(false);
+        setSuccess(true);
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setSuccess(false), 5000);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error('Error sending email:', error);
+        setErrors({ general: 'Something went wrong. Please try again.' });
+      });
   };
-  
 
   const contactInfo = [
-    {
-      icon: <FaEnvelope />,
-      text: 'Guillemunozi2003@gmail.com',
-    },
-    {
-      icon: <FaPhone />,
-      text: '+593 98 972 5566',
-    },
-    {
-      icon: <FaMapMarkerAlt />,
-      text: 'Guayaquil, Ecuador',
-    },
+    { icon: <FaEnvelope />, text: 'Guillemunozi2003@gmail.com' },
+    { icon: <FaPhone />, text: '+593 98 972 5566' },
+    { icon: <FaMapMarkerAlt />, text: 'Guayaquil, Ecuador' },
   ];
 
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className={styles.contactSection}>
       <SectionTitle title="Contact" subtitle="Get in touch" />
-      
-      <div className="contact-container">
-        <motion.div 
-          className="contact-info"
+      <div className={styles.contactContainer}>
+        <motion.div
+          className={styles.contactInfo}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -105,31 +87,30 @@ const Contact = () => {
           <p>
             Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
           </p>
-          
-          <div className="contact-details">
+          <div className={styles.contactDetails}>
             {contactInfo.map((info, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
-                className="contact-item"
+                className={styles.contactItem}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <div className="contact-icon">{info.icon}</div>
+                <div className={styles.contactIcon}>{info.icon}</div>
                 <p>{info.text}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
-        
-        <motion.div 
-          className="contact-form-container"
+
+        <motion.div
+          className={styles.contactFormContainer}
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
-            <div className="form-group">
+          <form ref={formRef} onSubmit={handleSubmit} className={styles.contactForm}>
+            <div className={styles.formGroup}>
               <label htmlFor="name">Your Name</label>
               <input
                 type="text"
@@ -137,12 +118,12 @@ const Contact = () => {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                className={errors.name ? 'error' : ''}
+                className={errors.name ? styles.error : ''}
               />
-              {errors.name && <p className="error-message">{errors.name}</p>}
+              {errors.name && <p className={styles.errorMessage}>{errors.name}</p>}
             </div>
-            
-            <div className="form-group">
+
+            <div className={styles.formGroup}>
               <label htmlFor="email">Your Email</label>
               <input
                 type="email"
@@ -150,12 +131,12 @@ const Contact = () => {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className={errors.email ? 'error' : ''}
+                className={errors.email ? styles.error : ''}
               />
-              {errors.email && <p className="error-message">{errors.email}</p>}
+              {errors.email && <p className={styles.errorMessage}>{errors.email}</p>}
             </div>
-            
-            <div className="form-group">
+
+            <div className={styles.formGroup}>
               <label htmlFor="message">Your Message</label>
               <textarea
                 id="message"
@@ -163,24 +144,24 @@ const Contact = () => {
                 rows="5"
                 value={form.message}
                 onChange={handleChange}
-                className={errors.message ? 'error' : ''}
+                className={errors.message ? styles.error : ''}
               />
-              {errors.message && <p className="error-message">{errors.message}</p>}
+              {errors.message && <p className={styles.errorMessage}>{errors.message}</p>}
             </div>
-            
+
             <motion.button
               type="submit"
-              className="submit-button"
+              className={styles.submitButton}
               disabled={loading}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {loading ? 'Sending...' : 'Send Message'}
             </motion.button>
-            
+
             {success && (
-              <motion.div 
-                className="success-message"
+              <motion.div
+                className={styles.successMessage}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
