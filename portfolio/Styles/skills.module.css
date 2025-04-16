@@ -1,0 +1,129 @@
+:root {
+  --expertise-gradient: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-secondary, #36d1dc) 100%);
+  --accent-color-15: rgba(var(--accent-color-rgb, 20, 184, 166), 0.15);
+}
+
+.skills {
+  padding: 5rem 1rem;
+  background-color: var(--bg-secondary);
+}
+
+.skillsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.underline {
+  height: 4px;
+  width: 80px;
+  background-color: var(--accent-color);
+  margin: 0 auto;
+}
+
+.skillsCategories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  list-style: none;
+  padding: 0;
+}
+
+.skillsCategories li {
+  margin: 0;
+  padding: 0;
+}
+
+.skillsCategory {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.skillsCategory:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.skillsCategory.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--bg-primary-inverse);
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.skillCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-10px);
+}
+
+.skillCardIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-size: 1.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.skillCardName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+}
+
+@media (max-width: 992px) {
+
+  .skillsFeaturedGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .skills {
+    padding: 4rem 0.75rem;
+  }
+  
+  .skillsCategory {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+}
