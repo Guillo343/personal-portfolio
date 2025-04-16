@@ -8,6 +8,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { FaBriefcase, FaGraduationCap, FaAward } from "react-icons/fa";
 import SectionTitle from "../Contact/SectionTitle";
 import { useTheme } from "../../../Context/ThemeContext";
+import styles from '../../../Styles/experience.module.css'
 
 const Experience = () => {
   const { darkMode } = useTheme();
@@ -92,7 +93,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="experience-section">
+    <section id="experience" className={styles.experienceSection}>
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -102,7 +103,7 @@ const Experience = () => {
         <SectionTitle title="Experience" subtitle="My professional journey" />
       </motion.div>
 
-      <div className="timeline-container">
+      <div className={styles.timelineContainer}>
         <VerticalTimeline lineColor={darkMode ? "#4b5563" : "#e5e7eb"}>
           {experiences.map((experience, index) => {
             const { icon, iconBg, iconColor } = itemTypes[experience.type];
@@ -130,11 +131,11 @@ const Experience = () => {
                 icon={icon}
               >
                 <div>
-                  <h3 className="experience-title">{experience.title}</h3>
-                  <h4 className="experience-company">
+                  <h3 className={styles.experienceTitle}>{experience.title}</h3>
+                  <h4 className={styles.experienceCompany}>
                     {experience.company} • <span>{experience.location}</span>
                   </h4>
-                  <p className="experience-description">
+                  <p className={styles.experienceDescription}>
                     {experience.description}
                   </p>
                 </div>
