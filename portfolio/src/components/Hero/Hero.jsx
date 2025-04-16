@@ -87,11 +87,11 @@ const Hero = () => {
               radius={100}
               depth={50}
               count={5000}
-              factor={4}
-              saturation={darkMode ? 0.5 : 0}
-              color={darkMode ? "white" : "#000"}
-              opacity={darkMode ? 1 : 0.3}
+              factor={darkMode ? 4 : 6}
+              saturation={darkMode ? 0.5 : 0.7}
+              color={darkMode ? "white" : "#1E90FF"}
               fade
+              speed={1.5}
             />
             <OrbitControls enableZoom={false} autoRotate />
           </Suspense>
