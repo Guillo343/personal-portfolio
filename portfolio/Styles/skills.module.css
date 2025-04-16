@@ -6,6 +6,7 @@
 .skills {
   padding: 5rem 1rem;
   background-color: var(--bg-secondary);
+  min-height: auto;
 }
 
 .skillsContainer {
