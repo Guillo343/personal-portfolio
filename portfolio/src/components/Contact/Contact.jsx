@@ -43,8 +43,8 @@ const Contact = () => {
     setErrors({});
 
     emailjs.send(
-      'service_y3c8b4m',
-      'template_02ekyuv',
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       {
         title: 'Contact Us',
         name: form.name,
@@ -52,7 +52,7 @@ const Contact = () => {
         message: form.message,
         time: new Date().toLocaleString(),
       },
-      'GOKgM-9cIwNeums8T'
+      import.meta.env.VITE_EMAILJS_USER_ID
     )
       .then(() => {
         setLoading(false);
