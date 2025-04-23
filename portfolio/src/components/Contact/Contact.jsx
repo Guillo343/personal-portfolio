@@ -8,7 +8,6 @@ import styles from '../../../Styles/contacts.module.css';
 const Contact = () => {
   useEffect(() => {
     emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
-    console.log("EmailJS initialized with key:", import.meta.env.VITE_EMAILJS_USER_ID);
   }, []);
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -56,7 +55,6 @@ const Contact = () => {
         message: form.message,
         time: new Date().toLocaleString(),
       },
-      // import.meta.env.VITE_EMAILJS_USER_ID
     )
       .then(() => {
         setLoading(false);
@@ -76,14 +74,6 @@ const Contact = () => {
     { icon: <FaPhone />, text: '+593 98 972 5566' },
     { icon: <FaMapMarkerAlt />, text: 'Guayaquil, Ecuador' },
   ];
-  useEffect(() => {
-    console.log("Environment variables available:", 
-      Boolean(import.meta.env.VITE_EMAILJS_SERVICE_ID), 
-      Boolean(import.meta.env.VITE_EMAILJS_TEMPLATE_ID), 
-      Boolean(import.meta.env.VITE_EMAILJS_USER_ID)
-    );
-    emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
-  }, []);
 
   return (
     <section id="contact" className={styles.contactSection}>
