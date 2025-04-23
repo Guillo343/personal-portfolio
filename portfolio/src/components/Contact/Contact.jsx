@@ -8,6 +8,7 @@ import styles from '../../../Styles/contacts.module.css';
 const Contact = () => {
   useEffect(() => {
     emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
+    console.log("EmailJS initialized with key:", import.meta.env.VITE_EMAILJS_USER_ID);
   }, []);
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -55,7 +56,7 @@ const Contact = () => {
         message: form.message,
         time: new Date().toLocaleString(),
       },
-      import.meta.env.VITE_EMAILJS_USER_ID
+      // import.meta.env.VITE_EMAILJS_USER_ID
     )
       .then(() => {
         setLoading(false);
