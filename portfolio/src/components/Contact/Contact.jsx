@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
-import emailjs from '@emailjs/browser';
-import SectionTitle from './SectionTitle';
-import styles from '../../../Styles/contacts.module.css';
+import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+import SectionTitle from "./SectionTitle";
+import styles from "../../../Styles/contacts.module.css";
 
 const Contact = () => {
   useEffect(() => {
@@ -11,9 +11,9 @@ const Contact = () => {
   }, []);
   const formRef = useRef();
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -22,18 +22,18 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
-    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const validateForm = () => {
     const newErrors = {};
-    if (!form.name.trim()) newErrors.name = 'Name is required';
+    if (!form.name.trim()) newErrors.name = "Name is required";
     if (!form.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      newErrors.email = 'Email is invalid';
+      newErrors.email = "Email is invalid";
     }
-    if (!form.message.trim()) newErrors.message = 'Message is required';
+    if (!form.message.trim()) newErrors.message = "Message is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -45,34 +45,35 @@ const Contact = () => {
     setSuccess(false);
     setErrors({});
 
-    emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      {
-        title: 'Contact Us',
-        name: form.name,
-        email: form.email,
-        message: form.message,
-        time: new Date().toLocaleString(),
-      },
-    )
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          title: "Contact Us",
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          time: new Date().toLocaleString(),
+        }
+      )
       .then(() => {
         setLoading(false);
         setSuccess(true);
-        setForm({ name: '', email: '', message: '' });
+        setForm({ name: "", email: "", message: "" });
         setTimeout(() => setSuccess(false), 5000);
       })
       .catch((error) => {
         setLoading(false);
-        console.error('Error sending email:', error);
-        setErrors({ general: 'Something went wrong. Please try again.' });
+        console.error("Error sending email:", error);
+        setErrors({ general: "Something went wrong. Please try again." });
       });
   };
 
   const contactInfo = [
-    { icon: <FaEnvelope />, text: 'Guillemunozi2003@gmail.com' },
-    { icon: <FaPhone />, text: '+593 98 972 5566' },
-    { icon: <FaMapMarkerAlt />, text: 'Guayaquil, Ecuador' },
+    { icon: <FaEnvelope />, text: "Guillemunozi2003@gmail.com" },
+    { icon: <FaPhone />, text: "+593 98 972 5566" },
+    { icon: <FaMapMarkerAlt />, text: "Guayaquil, Ecuador" },
   ];
 
   return (
@@ -87,7 +88,8 @@ const Contact = () => {
         >
           <h3>Let's talk about your project</h3>
           <p>
-            Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+            Feel free to reach out if you're looking for a developer, have a
+            question, or just want to connect.
           </p>
           <div className={styles.contactDetails}>
             {contactInfo.map((info, index) => (
@@ -111,7 +113,11 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <form ref={formRef} onSubmit={handleSubmit} className={styles.contactForm}>
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className={styles.contactForm}
+          >
             <div className={styles.formGroup}>
               <label htmlFor="name">Your Name</label>
               <input
@@ -120,9 +126,11 @@ const Contact = () => {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                className={errors.name ? styles.error : ''}
+                className={errors.name ? styles.error : ""}
               />
-              {errors.name && <p className={styles.errorMessage}>{errors.name}</p>}
+              {errors.name && (
+                <p className={styles.errorMessage}>{errors.name}</p>
+              )}
             </div>
 
             <div className={styles.formGroup}>
@@ -133,9 +141,11 @@ const Contact = () => {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className={errors.email ? styles.error : ''}
+                className={errors.email ? styles.error : ""}
               />
-              {errors.email && <p className={styles.errorMessage}>{errors.email}</p>}
+              {errors.email && (
+                <p className={styles.errorMessage}>{errors.email}</p>
+              )}
             </div>
 
             <div className={styles.formGroup}>
@@ -146,9 +156,11 @@ const Contact = () => {
                 rows="5"
                 value={form.message}
                 onChange={handleChange}
-                className={errors.message ? styles.error : ''}
+                className={errors.message ? styles.error : ""}
               />
-              {errors.message && <p className={styles.errorMessage}>{errors.message}</p>}
+              {errors.message && (
+                <p className={styles.errorMessage}>{errors.message}</p>
+              )}
             </div>
 
             <motion.button
@@ -158,7 +170,7 @@ const Contact = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {loading ? 'Sending...' : 'Send Message'}
+              {loading ? "Sending..." : "Send Message"}
             </motion.button>
 
             {success && (
