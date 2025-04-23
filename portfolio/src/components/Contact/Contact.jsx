@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
@@ -6,6 +6,9 @@ import SectionTitle from './SectionTitle';
 import styles from '../../../Styles/contacts.module.css';
 
 const Contact = () => {
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
+  }, []);
   const formRef = useRef();
   const [form, setForm] = useState({
     name: '',
