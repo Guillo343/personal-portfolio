@@ -76,6 +76,14 @@ const Contact = () => {
     { icon: <FaPhone />, text: '+593 98 972 5566' },
     { icon: <FaMapMarkerAlt />, text: 'Guayaquil, Ecuador' },
   ];
+  useEffect(() => {
+    console.log("Environment variables available:", 
+      Boolean(import.meta.env.VITE_EMAILJS_SERVICE_ID), 
+      Boolean(import.meta.env.VITE_EMAILJS_TEMPLATE_ID), 
+      Boolean(import.meta.env.VITE_EMAILJS_USER_ID)
+    );
+    emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
+  }, []);
 
   return (
     <section id="contact" className={styles.contactSection}>
