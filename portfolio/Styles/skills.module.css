@@ -148,7 +148,7 @@
   display: grid;
   gap: 2rem;
   margin-top: 4rem;
-  background: #1f2937;
+  background:var(--accent-color-15);
   padding: 3rem 2rem;
   border-radius: 16px;
 }
