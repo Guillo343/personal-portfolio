@@ -45,7 +45,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          Frontend Developer & UI Designer
+          Frontend Developer
         </motion.h2>
 
         <motion.p
@@ -54,7 +54,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          Building elegant, responsive and interactive web experiences
+          Crafting performant, scalable, and engaging web applications
         </motion.p>
 
         <div className={styles.heroCta}>

@@ -94,7 +94,7 @@ const AboutMe = () => {
             />
             <figcaption className={styles.figcaption}>
               <h3>Guillermo Muñoz</h3>
-              <p>Frontend Developer & UI Designer</p>
+              <p>Front-End Engineer focused on architecture, performance, and seamless user experiences</p>
             </figcaption>
           </figure>
         </motion.div>

@@ -18,7 +18,7 @@ const Footer = () => {
         <div className={styles.footerTop}>
           <div className={styles.footerLogo}>
             <h2>Guillermo Muñoz</h2>
-            <p>Creating elegant web experiences</p>
+            <p>Engineering high-performance digital experiences</p>
           </div>
           
           <div className={styles.footerLinks}>
