@@ -109,6 +109,81 @@
   margin-bottom: 0.25rem;
   margin-top: 0;
 }
+.skillsDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 0;
+  color: var(--text-secondary);
+}
+
+.descriptionBlock {
+  text-align: center;
+}
+
+.descriptionBlock h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.descriptionBlock p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.finalNote {
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.expertiseSection {
+  display: grid;
+  gap: 2rem;
+  margin-top: 4rem;
+  background: #1f2937;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+}
+
+.expertiseCategory {
+  background-color: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+}
+
+.expertiseCategory:hover {
+  background-color: var(--bg-secondary);
+}
+
+.expertiseCategory h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.expertiseCategory p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.expertiseFinalNote {
+  text-align: center;
+  font-style: italic;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
 
 @media (max-width: 992px) {
 
@@ -117,7 +192,23 @@
   }
 }
 
+@media (max-width: 768px) {
+  .skillsDescription {
+    padding: 1.5rem 0.5rem 0;
+  }
 
+  .descriptionBlock h3 {
+    font-size: 1.3rem;
+  }
+
+  .descriptionBlock p {
+    font-size: 0.95rem;
+  }
+
+  .finalNote {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 480px) {
   .skills {
     padding: 4rem 0.75rem;

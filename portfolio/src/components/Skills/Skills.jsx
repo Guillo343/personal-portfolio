@@ -1,7 +1,5 @@
-import React, { useState, Suspense, useMemo } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { FaReact, FaNodeJs, FaGitAlt, FaDocker } from "react-icons/fa";
 import {
   SiJavascript,
@@ -9,20 +7,18 @@ import {
   SiHtml5,
   SiCss3,
   SiTailwindcss,
-  SiRedux,
-  SiExpress,
-  SiMongodb,
-  SiPostgresql,
-  SiFirebase,
   SiThreedotjs,
   SiFramer,
   SiFigma,
+  SiNextdotjs,
+  SiRedux,
 } from "react-icons/si";
+
 import styles from "../../../Styles/skills.module.css";
 
-// Define skills data with icons
 const skillsData = [
   { name: "React", icon: <FaReact />, category: "frontend", featured: true },
+  { name: "Next.js", icon: <SiNextdotjs />, category: "frontend" },
   {
     name: "JavaScript",
     icon: <SiJavascript />,
@@ -44,23 +40,17 @@ const skillsData = [
     featured: true,
   },
   { name: "Redux", icon: <SiRedux />, category: "frontend" },
-  // { name: 'Node.js', icon: <FaNodeJs />, category: 'backend', featured: true },
-  // { name: 'Express.js', icon: <SiExpress />, category: 'backend' },
-  // { name: 'MongoDB', icon: <SiMongodb />, category: 'backend' },
-  // { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'backend' },
-  // { name: 'Firebase', icon: <SiFirebase />, category: 'backend' },
-  { name: "Git", icon: <FaGitAlt />, category: "tools", featured: true },
-  { name: "Docker", icon: <FaDocker />, category: "tools" },
   { name: "Three.js", icon: <SiThreedotjs />, category: "frontend" },
-  // { name: 'GSAP', icon: <SiGsap />, category: 'frontend' },
   { name: "Framer Motion", icon: <SiFramer />, category: "design" },
   { name: "Figma", icon: <SiFigma />, category: "design" },
+  { name: "Git", icon: <FaGitAlt />, category: "tools", featured: true },
+  { name: "Docker", icon: <FaDocker />, category: "tools" },
 ];
 
+const categories = ["all", "frontend", "design", "tools"];
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("all");
-  const categories = ["all", "frontend", "design", "tools"]; //No Backend knowledge
 
   const filteredSkills =
     activeCategory === "all"
@@ -70,7 +60,7 @@ const Skills = () => {
   return (
     <section id="skills" className={styles.skills}>
       <div className={styles.skillsContainer}>
-        {/* Title */}
+        {/* Section Title */}
         <motion.div
           className={styles.sectionTitle}
           initial={{ opacity: 0, y: 50 }}
@@ -82,7 +72,7 @@ const Skills = () => {
           <div className={styles.underline}></div>
         </motion.div>
 
-        {/* Categories */}
+        {/* Category Filter */}
         <motion.div
           className={styles.skillsCategories}
           initial={{ opacity: 0, y: 20 }}
@@ -90,9 +80,9 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <motion.button
-              key={index}
+              key={category}
               className={`${styles.skillsCategory} ${
                 activeCategory === category ? styles.active : ""
               }`}
@@ -112,12 +102,12 @@ const Skills = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3, staggerChildren: 0.1 }}
+          transition={{ duration: 0.6 }}
         >
           {filteredSkills.map((skill, index) => (
             <motion.div
-              className={styles.skillCard}
               key={index}
+              className={styles.skillCard}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -128,6 +118,81 @@ const Skills = () => {
               <h4 className={styles.skillCardName}>{skill.name}</h4>
             </motion.div>
           ))}
+        </motion.div>
+        {/* Skills Descriptions */}
+        <motion.div
+          className={styles.expertiseSection}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+        >
+          <motion.div
+            className={styles.expertiseCategory}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <h3>Frontend Development</h3>
+            <p>
+              I specialize in modern frontend architectures using React,
+              TypeScript, Tailwind CSS and Next.js. I'm passionate about
+              building accessible, scalable and high-performance web
+              applications.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className={styles.expertiseCategory}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <h3>UI/UX & Design Integration</h3>
+            <p>
+              I bridge the gap between design and development, ensuring
+              pixel-perfect implementation with tools like Figma, Framer Motion
+              and Three.js, delivering smooth and engaging user experiences.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className={styles.expertiseCategory}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <h3>Tools & Workflow</h3>
+            <p>
+              I maintain clean codebases with Git, optimize deployments with
+              Docker, and continuously integrate using best practices in modern
+              workflows.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className={styles.expertiseFinalNote}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <p>
+              My current goal is to evolve into a full-stack and software
+              architecture role, expanding my backend knowledge and building
+              solid, scalable systems.
+            </p>
+          </motion.div>
         </motion.div>
       </div>
     </section>
