@@ -5,9 +5,9 @@ import styles from "../../../Styles/about.module.css";
 
 const AboutMe = () => {
   const skills = [
-    {
-      name: "Front-End Engineering: HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Three.js, Tailwind CSS, Framer Motion",
-    },
+    // {
+    //    name: "Front-End Engineering: HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Three.js, Tailwind CSS, Framer Motion",
+    // },
     {
       name: "Software Architecture & Engineering Practices: RESTful APIs, client-server communication, authentication, state management",
     },
@@ -17,9 +17,9 @@ const AboutMe = () => {
     {
       name: "Backend Fundamentals & Cloud: Node.js, Express.js, API key management, serverless functions, cloud deployment (Vercel, Netlify)",
     },
-    {
-      name: "Collaboration & Tools: Git, GitHub, Agile methodologies, CI/CD basics, cross-functional teamwork",
-    },
+    // {
+    //   name: "Collaboration & Tools: Git, GitHub, Agile methodologies, CI/CD basics, cross-functional teamwork",
+    // },
   ];
 
   return (
@@ -62,7 +62,6 @@ const AboutMe = () => {
           </motion.div>
 
           <div className={styles.skillsSection}>
-            <h3>My Skills</h3>
             <ul className={styles.skillsList}>
               {skills.map((skill, index) => (
                 <li className={styles.skillItem} key={index}>
@@ -70,12 +69,12 @@ const AboutMe = () => {
                 </li>
               ))}
             </ul>
-            <p className={styles.skillsSummary}>
+            {/* <p className={styles.skillsSummary}>
               Passionate about engineering scalable web applications and
               crafting high-impact digital experiences, I focus on delivering
               resilient, high-performance solutions that connect design,
               functionality, and system architecture.
-            </p>
+            </p> */}
           </div>
         </div>
 
