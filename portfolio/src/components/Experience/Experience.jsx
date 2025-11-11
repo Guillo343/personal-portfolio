@@ -51,21 +51,21 @@ const Experience = () => {
     //   type: "work"
     // },
     // {
-    //   title: "Best Web App Award",
-    //   company: "National Tech Conference",
-    //   location: "Chicago, IL",
-    //   description: "Received recognition for developing an innovative accessibility-focused web application that helps users with visual impairments navigate complex websites.",
-    //   date: "2021",
-    //   type: "award"
-    // },
-    // {
     //   title: "Junior Developer",
-    //   company: "Startup Hub",
-    //   location: "Austin, TX",
-    //   description: "Built and maintained web applications using React and Node.js. Participated in agile development processes and contributed to open-source projects.",
-    //   date: "2018 - 2020",
+    //   company: "National Tech Conference",
+    //   location: "Samborondon, Ecuador",
+    //   description: "Developing and modernizing an internal application using Angular, alongside providing IT support for daily operations.",
+    //   date: "2025 Octuber-Present",
     //   type: "work"
     // },
+     {
+      title: "Junior Developer",
+       company: "Empagran",
+       location: "Guayaquil, Ecuador",
+      description: "Designed and developed .NET applications (using .NET Framework) to manage and track production data in a shrimp processing facility.",
+      date: "2025 July - 2025 Octuber",
+      type: "work"
+     },
     {
       title: "Bachelor's Degree in Information Technology",
       company: "UEES",
