@@ -50,14 +50,14 @@ const Experience = () => {
     //   date: "2020 - 2022",
     //   type: "work"
     // },
-    // {
-    //   title: "Junior Developer",
-    //   company: "National Tech Conference",
-    //   location: "Samborondon, Ecuador",
-    //   description: "Developing and modernizing an internal application using Angular, alongside providing IT support for daily operations.",
-    //   date: "2025 Octuber-Present",
-    //   type: "work"
-    // },
+     {
+       title: "Junior Developer",
+       company: "Proinba Proyectos Inmobiliarios Batan S.A.",
+       location: "Samborondon, Ecuador",
+       description: "Developing and modernizing an internal application using Angular, alongside providing IT support for daily operations.",
+       date: "2025 Octuber-Present",
+       type: "work"
+     },
      {
       title: "Junior Developer",
        company: "Empagran",
